@@ -14,6 +14,10 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
+    <link
+href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css"
+rel="stylesheet"
+/>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -24,9 +28,10 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+
     <title>React App</title>
   </head>
-  <body>
+  <body style="background-color: #ffffff ;">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -38,6 +43,11 @@
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+      -->
+     
+      <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUNQFDdYtX-GdMYKZyfm9u9XvWYUZjDxs&callback=initMap&libraries=&v=weekly"
+      async
+    ></script> -->
   </body>
 </html>
