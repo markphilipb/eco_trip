@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl-csp";
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -11,57 +11,52 @@ mapboxgl.workerClass = MapboxWorker;
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWFya2JhbGEiLCJhIjoiY2tucGVyeHNjMDFzMDJ3cnl2czQwaHBuOCJ9.bNY9rxYVfVIJM74SxBjb7Q";
 
-class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      originCords: this.props.originCords,
-      destCords: this.props.destCords,
-      lng: -70.9,
-      lat: 42.35,
-      zoom: 15,
-      result: this.props.result,
-      cords: this.props.cords,
-      maps: null,
-    };
-    this.mapContainer = React.createRef();
-  }
+export default function Map(props) {
+  const mapContainer = useRef(null);
+  const map = useRef(null);
 
-  componentDidMount() {
-    const { lng, lat, zoom } = this.state;
-    const map = new mapboxgl.Map({
-      container: this.mapContainer.current,
+  const [zoom, setZoom] = useState(15);
+
+  const [originCords, setOrigin] = useState(props.originCords);
+  const [destCords, setDest] = useState(props.destCords);
+  const [lng, setLng] = useState(-70.9);
+  const [lat, setLat] = useState(42.35);
+  const [result, setResult] = useState(props.result);
+  const [cords, setCords] = useState(props.cords);
+  const [maps, setMaps] = useState(null);
+
+  useEffect(() => {
+    if (map.current) return;
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [lng, lat],
-      //center: [-73.871421, 40.738596],
-
       zoom: zoom,
     });
+  }, [lat, lng, zoom]);
 
-    map.setPadding({
+  useEffect(() => {
+    if (!map.current) return;
+    map.current.on("move", () => {
+      setLng(map.current.getCenter().lng.toFixed(4));
+      setLat(map.current.getCenter().lat.toFixed(4));
+      setZoom(map.current.getZoom().toFixed(2));
+    });
+    map.current.setPadding({
       left: 50,
       right: 50,
       top: 50,
       bottom: 50,
     });
 
-    this.setState({
-      maps: map,
-    });
+    setMaps(map);
+    props.setMap(map);
+  }, [props]);
 
-    this.props.setMap(map);
-  }
-
-  render() {
-    const { lng, lat, zoom } = this.state;
-
-    return (
-      <div>
-        <div ref={this.mapContainer} className="map-container" />
-        {}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <div ref={mapContainer} className="map-container" />
+      {}
+    </div>
+  );
 }
-
-export default Map;
