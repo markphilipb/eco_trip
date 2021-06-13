@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl-csp";
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import MapboxWorker from "worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker";
+import Card from "react-bootstrap/Card";
+
 import "./MapBoxComponent.css";
 
 mapboxgl.workerClass = MapboxWorker;
@@ -52,6 +54,7 @@ class Map extends Component {
 
   render() {
     const { lng, lat, zoom } = this.state;
+
     return (
       <div>
         <div ref={this.mapContainer} className="map-container" />
