@@ -23,6 +23,11 @@ export default function Map(props) {
   const [cords, setCords] = useState(props.cords);
   const [maps, setMaps] = useState(null);
 
+  const containerStyle = {
+    width: "600px",
+    height: "600px",
+  };
+
   useEffect(() => {
     if (map.current) return;
     map.current = new mapboxgl.Map({
@@ -45,7 +50,15 @@ export default function Map(props) {
 
   return (
     <div>
-      <div ref={mapContainer} className="map-container" />
+      <Card
+        className="shadow-lg p-3 mb-5 bg-white rounded"
+        border="light"
+        style={containerStyle}
+      >
+        <Card.Body>
+          <div ref={mapContainer} className="map-container" />
+        </Card.Body>
+      </Card>
       {}
     </div>
   );
