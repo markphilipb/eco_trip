@@ -1,13 +1,11 @@
-import React, { Component, useEffect, useRef, useState } from "react";
-import ReactDOM from "react-dom";
-import mapboxgl from "mapbox-gl/dist/mapbox-gl-csp";
+import React, { useEffect, useRef, useState } from "react";
+import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 // eslint-disable-next-line import/no-webpack-loader-syntax
 import MapboxWorker from "worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker";
 import Card from "react-bootstrap/Card";
 
 import "./MapBoxComponent.css";
 
-mapboxgl.workerClass = MapboxWorker;
 mapboxgl.accessToken =
   "pk.eyJ1IjoibWFya2JhbGEiLCJhIjoiY2tucGVyeHNjMDFzMDJ3cnl2czQwaHBuOCJ9.bNY9rxYVfVIJM74SxBjb7Q";
 
@@ -33,15 +31,7 @@ export default function Map(props) {
       center: [lng, lat],
       zoom: zoom,
     });
-  }, [lat, lng, zoom]);
 
-  useEffect(() => {
-    if (!map.current) return;
-    map.current.on("move", () => {
-      setLng(map.current.getCenter().lng.toFixed(4));
-      setLat(map.current.getCenter().lat.toFixed(4));
-      setZoom(map.current.getZoom().toFixed(2));
-    });
     map.current.setPadding({
       left: 50,
       right: 50,
@@ -51,7 +41,7 @@ export default function Map(props) {
 
     setMaps(map);
     props.setMap(map);
-  }, [props]);
+  }, [lng, lat, zoom, props]);
 
   return (
     <div>
