@@ -56,7 +56,7 @@ class Home extends Component {
   };
 
   flyTo(originCords, destCords, map) {
-    map.fitBounds([originCords, destCords]);
+    map.current.fitBounds([originCords, destCords]);
   }
 
   displayLine(coords, map) {
@@ -72,15 +72,15 @@ class Home extends Component {
       },
     };
 
-    if (map.getSource("route")) {
-      map.removeLayer("route");
-      map.removeSource("route");
+    if (map.current.getSource("route")) {
+      map.current.removeLayer("route");
+      map.current.removeSource("route");
       //map.getSource("route").setData(geojson);
     }
     // else {
-    map.addSource("route", geojson);
+    map.current.addSource("route", geojson);
     // }
-    map.addLayer({
+    map.current.addLayer({
       id: "route",
       type: "line",
       source: "route",
