@@ -13,13 +13,8 @@ export default function Map(props) {
   const map = useRef(null);
 
   const [zoom, setZoom] = useState(15);
-
-  const [originCords, setOrigin] = useState(props.originCords);
-  const [destCords, setDest] = useState(props.destCords);
   const [lng, setLng] = useState(-70.9);
   const [lat, setLat] = useState(42.35);
-  //const [result, setResult] = useState(props.result);
-  // const [cords, setCords] = useState(props.cords);
   const [maps, setMaps] = useState(null);
 
   const containerStyle = {
