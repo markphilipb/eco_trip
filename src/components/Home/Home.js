@@ -75,11 +75,8 @@ class Home extends Component {
     if (map.current.getSource("route")) {
       map.current.removeLayer("route");
       map.current.removeSource("route");
-      //map.getSource("route").setData(geojson);
     }
-    // else {
     map.current.addSource("route", geojson);
-    // }
     map.current.addLayer({
       id: "route",
       type: "line",
