@@ -19,7 +19,7 @@ export default function Map(props) {
   const [lng, setLng] = useState(-70.9);
   const [lat, setLat] = useState(42.35);
   const [result, setResult] = useState(props.result);
-  const [cords, setCords] = useState(props.cords);
+  // const [cords, setCords] = useState(props.cords);
   const [maps, setMaps] = useState(null);
 
   const containerStyle = {
