@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 // eslint-disable-next-line import/no-webpack-loader-syntax
-import MapboxWorker from "worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker";
 import Card from "react-bootstrap/Card";
 
 import "./MapBoxComponent.css";
@@ -32,7 +31,7 @@ export default function Map(props) {
     if (map.current) return;
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
+      style: "mapbox://styles/markbala/ckpxh58br5h0m17llp7j0rsix",
       center: [lng, lat],
       zoom: zoom,
     });
@@ -59,7 +58,6 @@ export default function Map(props) {
           <div ref={mapContainer} className="map-container" />
         </Card.Body>
       </Card>
-      {}
     </div>
   );
 }
