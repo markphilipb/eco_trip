@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SidePanel from "../SidePanel/SidePanel";
+import NavBar from "../NavBar/NavBar";
 import Map from "../MapBoxComponent/MapBoxComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
@@ -96,6 +97,9 @@ class Home extends Component {
     return (
       <div>
         <Container fluid>
+          <Row className="justify-content-center">
+            <NavBar />
+          </Row>
           <Row className="w-100 justify-content-center mt-5">
             <Col md="auto">
               <SidePanel
