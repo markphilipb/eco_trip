@@ -97,7 +97,7 @@ class Home extends Component {
     return (
       <div>
         <Container fluid>
-          <Row>
+          <Row className="justify-content-center">
             <NavBar />
           </Row>
           <Row className="w-100 justify-content-center mt-5">
