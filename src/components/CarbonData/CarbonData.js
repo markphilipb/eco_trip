@@ -10,7 +10,16 @@ class CarbonData extends Component {
   }
 
   render() {
-    return <div>Carbon emission is {0.25 * this.props.distance} grams</div>;
+    return (
+      <div>
+        <div>Distance: {this.props.distance} meters</div>
+        <div>Carbon emission is {0.25 * this.props.distance} grams</div>
+        <div>
+          Your trip costs ${((this.props.distance / 34761.81) * 3).toFixed(2)}{" "}
+          USD
+        </div>
+      </div>
+    );
   }
 }
 
