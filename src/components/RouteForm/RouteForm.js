@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -18,14 +19,15 @@ class RouteForm extends Component {
     this.onDestinationInput = this.onDestinationInput.bind(this);
   }
 
-  componentDidMount() {
-    mapboxgl.accessToken =
-      "pk.eyJ1IjoibWFya2JhbGEiLCJhIjoiY2pwM2oxbDV5MDA0cTNxcGM3ZjduY280OSJ9.sbCqq_nUSyf1YzZOucuDjA";
-    var geocoder = new mapboxgl.MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-    });
-    geocoder.addTo("#originField");
-  }
+  //Mapbox autocomplete geocoder input field. Not using for now -MB
+  // componentDidMount() {
+  //   mapboxgl.accessToken =
+  //     "pk.eyJ1IjoibWFya2JhbGEiLCJhIjoiY2tucGVyeHNjMDFzMDJ3cnl2czQwaHBuOCJ9.bNY9rxYVfVIJM74SxBjb7Q";
+  //   var geocoder = new MapboxGeocoder({
+  //     accessToken: mapboxgl.accessToken,
+  //   });
+  //   // geocoder.addTo("#originField");
+  // }
 
   handleSubmit = async (e) => {
     this.props.handleClick(this.state.origin, this.state.destination);
@@ -51,7 +53,6 @@ class RouteForm extends Component {
         <Form.Group controlId="formOrigin">
           <Form.Label>Origin</Form.Label>
           <Form.Control
-            id="originField"
             type="text"
             placeholder="Choose starting point"
             onChange={this.onOriginInput}
@@ -62,7 +63,6 @@ class RouteForm extends Component {
         <Form.Group controlId="formDestination">
           <Form.Label>Destination</Form.Label>
           <Form.Control
-            id="destField"
             type="text-muted"
             placeholder="Choose Destination"
             onChange={this.onDestinationInput}
