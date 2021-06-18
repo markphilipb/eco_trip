@@ -15,8 +15,10 @@ class CarbonData extends Component {
   render() {
     return (
       <div>
+        {/* flexbox */}
         <Container fluid>
           <div>Distance: {this.props.distance} meters</div>
+          {/* passenger car */}
           <div>
             Average passenger car: Carbon emission is{" "}
             {0.25 * this.props.distance} grams
@@ -25,11 +27,13 @@ class CarbonData extends Component {
             Your trip costs ${((this.props.distance / 34761.81) * 3).toFixed(2)}{" "}
             USD
           </div>
+          {/* suv */}
           <div>SUV: Carbon emission is {0.27 * this.props.distance} grams</div>
           <div>
             Your trip costs ${((this.props.distance / 32186.9) * 3).toFixed(2)}{" "}
             USD
           </div>
+          {/* pickup truck */}
           <div>
             Pickup truck: Carbon emission is {0.3 * this.props.distance} grams
           </div>
