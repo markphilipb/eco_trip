@@ -28,6 +28,13 @@ class CarbonData extends Component {
             Your trip costs ${((this.props.distance / 64373.8) * 3).toFixed(2)}{" "}
             USD
           </div>
+          <div>
+            Pickup truck: Carbon emission is {this.props.distance} grams
+          </div>
+          <div>
+            Your trip costs &{((this.props.distance / 33796.2) * 3).toFixed(2)}{" "}
+            USD
+          </div>
         </Container>
       </div>
     );
