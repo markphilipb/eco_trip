@@ -1,4 +1,4 @@
-import logo from "../../imgs/eco_logo.png";
+import logo from "../../imgs/logo/eco_logo.png";
 
 export default function NavBar(props) {
   return (
