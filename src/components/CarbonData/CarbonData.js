@@ -10,6 +10,7 @@ class CarbonData extends Component {
     };
   }
 
+  // 8887 grams of CO2 per 1 gallong
   render() {
     return (
       <div>
@@ -23,16 +24,16 @@ class CarbonData extends Component {
             Your trip costs ${((this.props.distance / 34761.81) * 3).toFixed(2)}{" "}
             USD
           </div>
-          <div>SUV: Carbon emission is {this.props.distance} grams</div>
+          <div>SUV: Carbon emission is {0.27 * this.props.distance} grams</div>
           <div>
-            Your trip costs ${((this.props.distance / 64373.8) * 3).toFixed(2)}{" "}
+            Your trip costs ${((this.props.distance / 32186.9) * 3).toFixed(2)}{" "}
             USD
           </div>
           <div>
-            Pickup truck: Carbon emission is {this.props.distance} grams
+            Pickup truck: Carbon emission is {0.3 * this.props.distance} grams
           </div>
           <div>
-            Your trip costs &{((this.props.distance / 33796.2) * 3).toFixed(2)}{" "}
+            Your trip costs &{((this.props.distance / 28968.2) * 3).toFixed(2)}{" "}
             USD
           </div>
         </Container>
