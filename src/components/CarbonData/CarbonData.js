@@ -12,6 +12,8 @@ class CarbonData extends Component {
 
   calculateCarbonFootprint() {}
 
+  calculateGasCost() {}
+
   // 8887 grams of CO2 per 1 gallong
   //Use vehicle icons and react-spring for animations
   render() {
