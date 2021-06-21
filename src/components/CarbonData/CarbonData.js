@@ -1,14 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Container from "react-bootstrap/esm/Container";
 
-class CarbonData extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      origin: "",
-      destination: "",
-    };
-  }
+export default function CarbonData(props){
+
+  const [origin, setOrigin] = useState("");
+  const [destination, setDestination] = useState("");
+
 
   calculateCarbonFootprint() {}
 
