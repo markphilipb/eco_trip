@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
@@ -7,17 +7,9 @@ import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 // eslint-disable-next-line import/no-webpack-loader-syntax
 
-class RouteForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      origin: "",
-      destination: "",
-    };
-
-    this.onOriginInput = this.onOriginInput.bind(this);
-    this.onDestinationInput = this.onDestinationInput.bind(this);
-  }
+export default function RouteForm(props) {
+  const [origin, setOrigin] = useState("");
+  const [destination, setDestination] = useState("");
 
   //Mapbox autocomplete geocoder input field. Not using for now -MB
   // componentDidMount() {
@@ -29,52 +21,43 @@ class RouteForm extends Component {
   //   // geocoder.addTo("#originField");
   // }
 
-  handleSubmit = async (e) => {
-    this.props.handleClick(this.state.origin, this.state.destination);
-    this.props.showCarbon();
-  };
-
-  onOriginInput(e) {
-    this.setState({
-      origin: e.target.value,
-    });
-    console.log(this.state.destination);
+  function handleSubmit(e) {
+    props.handleClick(origin, destination);
+    props.showCarbon();
   }
 
-  onDestinationInput(e) {
-    this.setState({
-      destination: e.target.value,
-    });
+  function onOriginInput(e) {
+    setOrigin(e.target.value);
   }
 
-  render() {
-    return (
-      <Form>
-        <Form.Group controlId="formOrigin">
-          <Form.Label>Origin</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Choose starting point"
-            onChange={this.onOriginInput}
-            value={this.state.origin}
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formDestination">
-          <Form.Label>Destination</Form.Label>
-          <Form.Control
-            type="text-muted"
-            placeholder="Choose Destination"
-            onChange={this.onDestinationInput}
-            value={this.state.destination}
-          />
-        </Form.Group>
-        <Button variant="primary" onClick={this.handleSubmit}>
-          Submit
-        </Button>
-      </Form>
-    );
+  function onDestinationInput(e) {
+    setDestination(e.target.value);
   }
+
+  return (
+    <Form>
+      <Form.Group controlId="formOrigin">
+        <Form.Label>Origin</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Choose starting point"
+          onChange={onOriginInput}
+          value={origin}
+        />
+      </Form.Group>
+
+      <Form.Group controlId="formDestination">
+        <Form.Label>Destination</Form.Label>
+        <Form.Control
+          type="text-muted"
+          placeholder="Choose Destination"
+          onChange={onDestinationInput}
+          value={destination}
+        />
+      </Form.Group>
+      <Button variant="primary" onClick={handleSubmit}>
+        Submit
+      </Button>
+    </Form>
+  );
 }
-
-export default RouteForm;
