@@ -31,13 +31,19 @@ export default function CarbonData(props) {
             <div>Carbon emission is {0.25 * props.distance} grams</div>
           </Col>
         </Row>
-        {/* passenger car */}
 
         <div>
           Your trip costs ${((props.distance / 34761.81) * 3).toFixed(2)} USD
         </div>
-        {/* suv */}
-        <div>SUV: Carbon emission is {0.27 * props.distance} grams</div>
+
+        <Row>
+          <Col>
+            <img src={suvIcon} height="50px" width="50px" alt="suv" />
+          </Col>
+          <Col>
+            <div>Carbon emission is {0.27 * props.distance} grams</div>
+          </Col>
+        </Row>
         <div>
           Your trip costs ${((props.distance / 32186.9) * 3).toFixed(2)} USD
         </div>
