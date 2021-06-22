@@ -19,7 +19,6 @@ export default function CarbonData(props) {
 
   return (
     <div>
-      {/* flexbox */}
       <Container fluid>
         <div>Distance: {props.distance} meters</div>
 
