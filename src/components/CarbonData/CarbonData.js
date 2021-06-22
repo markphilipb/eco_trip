@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Container from "react-bootstrap/esm/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import carIcon from "../../imgs/icons/car.png";
 import pickupIcon from "../../imgs/icons/pickuptruck.png";
 import suvIcon from "../../imgs/icons/suv.png";
@@ -20,6 +22,8 @@ export default function CarbonData(props) {
       {/* flexbox */}
       <Container fluid>
         <div>Distance: {props.distance} meters</div>
+
+        <Row></Row>
         {/* passenger car */}
         <div>
           Average passenger car: Carbon emission is {0.25 * props.distance}{" "}
