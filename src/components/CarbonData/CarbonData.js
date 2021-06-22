@@ -1,5 +1,8 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/esm/Container";
+import carIcon from "../../imgs/icons/car.png";
+import pickupIcon from "../../imgs/icons/pickuptruck.png";
+import suvIcon from "../../imgs/icons/suv.png";
 
 export default function CarbonData(props) {
   const [origin, setOrigin] = useState("");
