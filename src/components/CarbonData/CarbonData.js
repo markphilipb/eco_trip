@@ -30,28 +30,34 @@ export default function CarbonData(props) {
           <Col md="auto">
             <div>Carbon emission is {0.25 * props.distance} grams</div>
           </Col>
+          <div className="mt-2">
+            Your trip costs ${((props.distance / 34761.81) * 3).toFixed(2)} USD
+          </div>
         </Row>
 
-        <div>
-          Your trip costs ${((props.distance / 34761.81) * 3).toFixed(2)} USD
-        </div>
-
-        <Row>
-          <Col>
+        <Row className="w-100 justify-content-center mt-2">
+          <Col md="auto">
             <img src={suvIcon} height="50px" width="50px" alt="suv" />
           </Col>
-          <Col>
+          <Col md="auto">
             <div>Carbon emission is {0.27 * props.distance} grams</div>
           </Col>
+          <div>
+            Your trip costs ${((props.distance / 32186.9) * 3).toFixed(2)} USD
+          </div>
         </Row>
-        <div>
-          Your trip costs ${((props.distance / 32186.9) * 3).toFixed(2)} USD
-        </div>
-        {/* pickup truck */}
-        <div>Pickup truck: Carbon emission is {0.3 * props.distance} grams</div>
-        <div>
-          Your trip costs ${((props.distance / 28968.2) * 3).toFixed(2)} USD
-        </div>
+
+        <Row className="w-100 justify-content-center mt-2">
+          <Col md="auto">
+            <img src={pickupIcon} height="40px" width="40px" alt="pickupIcon" />
+          </Col>
+          <Col md="auto">
+            <div>Carbon emission is {0.3 * props.distance} grams</div>
+          </Col>
+          <div>
+            Your trip costs ${((props.distance / 28968.2) * 3).toFixed(2)} USD
+          </div>
+        </Row>
       </Container>
     </div>
   );
