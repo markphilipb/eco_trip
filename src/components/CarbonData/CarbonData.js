@@ -13,6 +13,7 @@ export default function CarbonData(props) {
   const [carDist, setCarDist] = useState(0);
   const [suvDist, setSuvDist] = useState(0);
   const [truckDist, setTruckDist] = useState(0);
+  const [open, toggle] = useState(false);
 
   function calculateCarbonFootprint() {
     // if (props.distance > 400) {
@@ -27,6 +28,9 @@ export default function CarbonData(props) {
     //   setTruckDist(0.3 * props.distance);
     // }
   }
+  const sleep = (milliseconds) => {
+    return new Promise((resolve) => setTimeout(resolve, milliseconds));
+  };
 
   useEffect(() => {
     console.log(props.distance);
@@ -41,6 +45,10 @@ export default function CarbonData(props) {
       setCarDist((0.25 * props.distance) / 3);
       setSuvDist((0.27 * props.distance) / 2);
       setTruckDist(0.3 * props.distance);
+    }
+    sleep(6000);
+    if (!open) {
+      toggle(!open);
     }
   });
 
@@ -59,7 +67,7 @@ export default function CarbonData(props) {
             <img src={carIcon} height="50px" width="50px" alt="carIcon" />
           </Col>
           <Col md="auto">
-            <SpringMeter width={carDist} color="#32DF89" />
+            <SpringMeter open={open} width={carDist} color="#32DF89" />
             <div>Carbon emission is {0.25 * props.distance} grams</div>
           </Col>
           <div className="mt-2">
@@ -72,7 +80,7 @@ export default function CarbonData(props) {
             <img src={suvIcon} height="50px" width="50px" alt="suv" />
           </Col>
           <Col md="auto">
-            <SpringMeter width={suvDist} color="#32DF89" />
+            <SpringMeter open={open} width={suvDist} color="#32DF89" />
             <div>Carbon emission is {0.27 * props.distance} grams</div>
           </Col>
           <div>
@@ -85,7 +93,7 @@ export default function CarbonData(props) {
             <img src={pickupIcon} height="50px" width="50px" alt="pickupIcon" />
           </Col>
           <Col md="auto">
-            <SpringMeter width={truckDist} color="#32DF89" />
+            <SpringMeter open={open} width={truckDist} color="#32DF89" />
             <div>Carbon emission is {0.3 * props.distance} grams</div>
           </Col>
           <div>
