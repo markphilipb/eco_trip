@@ -12,7 +12,7 @@ export default function SpringMeter(props) {
       <div
         ref={ref}
         className="main"
-        style={{ width: "150px" }}
+        style={{ width: props.width + "px" }}
         onClick={() => toggle(!open)}
       >
         <animated.div className="fill" style={prp} />
