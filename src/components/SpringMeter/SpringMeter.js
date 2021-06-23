@@ -1,0 +1,20 @@
+import React, { useState } from "react";
+import useMeasure from "react-use-measure";
+import { useSpring, animated } from "@react-spring/web";
+import "./SpringMeter.css";
+
+export default function SpringMeter(props) {
+  const [open, toggle] = useState(false);
+  const [ref, { width }] = useMeasure();
+  const prp = useSpring({ width: open ? width : 0, background: props.color });
+  return (
+    <div className="container">
+      <div ref={ref} className="main" onClick={() => toggle(!open)}>
+        <animated.div className="fill" style={prp} />
+        <animated.div className="content">
+          {prp.width.to((x) => x.toFixed(0))}
+        </animated.div>
+      </div>
+    </div>
+  );
+}
