@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -10,8 +10,39 @@ import SpringMeter from "../SpringMeter/SpringMeter";
 export default function CarbonData(props) {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
+  const [carDist, setCarDist] = useState(0);
+  const [suvDist, setSuvDist] = useState(0);
+  const [truckDist, setTruckDist] = useState(0);
 
-  function calculateCarbonFootprint() {}
+  function calculateCarbonFootprint() {
+    // if (props.distance > 400) {
+    //   let temp = props.distance / 400;
+    //   let newDistance = props.distance / temp;
+    //   setCarDist(0.25 * newDistance);
+    //   setSuvDist(0.27 * newDistance);
+    //   setTruckDist(0.3 * newDistance);
+    // } else {
+    //   setCarDist(0.25 * props.distance);
+    //   setSuvDist(0.27 * props.distance);
+    //   setTruckDist(0.3 * props.distance);
+    // }
+  }
+
+  useEffect(() => {
+    console.log(props.distance);
+    if (0.3 * props.distance > 400) {
+      let temp = props.distance / 400;
+      let newDistance = props.distance / temp;
+
+      setCarDist(150);
+      setSuvDist(250);
+      setTruckDist(350);
+    } else {
+      setCarDist((0.25 * props.distance) / 3);
+      setSuvDist((0.27 * props.distance) / 2);
+      setTruckDist(0.3 * props.distance);
+    }
+  });
 
   function calculateGasCost() {}
 
@@ -28,7 +59,7 @@ export default function CarbonData(props) {
             <img src={carIcon} height="50px" width="50px" alt="carIcon" />
           </Col>
           <Col md="auto">
-            <SpringMeter width={0.25 * props.distance} color="#32DF89" />
+            <SpringMeter width={carDist} color="#32DF89" />
             <div>Carbon emission is {0.25 * props.distance} grams</div>
           </Col>
           <div className="mt-2">
@@ -41,7 +72,7 @@ export default function CarbonData(props) {
             <img src={suvIcon} height="50px" width="50px" alt="suv" />
           </Col>
           <Col md="auto">
-            <SpringMeter width={0.27 * props.distance} color="#32DF89" />
+            <SpringMeter width={suvDist} color="#32DF89" />
             <div>Carbon emission is {0.27 * props.distance} grams</div>
           </Col>
           <div>
@@ -51,10 +82,10 @@ export default function CarbonData(props) {
 
         <Row className="w-100 justify-content-center mt-2">
           <Col md="auto">
-            <img src={pickupIcon} height="40px" width="40px" alt="pickupIcon" />
+            <img src={pickupIcon} height="50px" width="50px" alt="pickupIcon" />
           </Col>
           <Col md="auto">
-            <SpringMeter width={0.3 * props.distance} color="#32DF89" />
+            <SpringMeter width={truckDist} color="#32DF89" />
             <div>Carbon emission is {0.3 * props.distance} grams</div>
           </Col>
           <div>
