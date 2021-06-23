@@ -28,7 +28,10 @@ export default function CarbonData(props) {
             <img src={carIcon} height="50px" width="50px" alt="carIcon" />
           </Col>
           <Col md="auto">
-            <SpringMeter color="#32DF89" />
+            <SpringMeter
+              width={((props.distance / 34761.81) * 3).toFixed(2)}
+              color="#32DF89"
+            />
             {/* <div>Carbon emission is {0.25 * props.distance} grams</div> */}
           </Col>
           <div className="mt-2">
