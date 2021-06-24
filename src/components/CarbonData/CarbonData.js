@@ -42,7 +42,6 @@ export default function CarbonData(props) {
   function calculateGasCost() {}
 
   // 8887 grams of CO2 per 1 gallong
-  //Use vehicle icons and react-spring for animations
 
   return (
     <div>
