@@ -15,19 +15,7 @@ export default function CarbonData(props) {
   const [truckDist, setTruckDist] = useState(0);
   const [open, toggle] = useState(false);
 
-  function calculateCarbonFootprint() {
-    // if (props.distance > 400) {
-    //   let temp = props.distance / 400;
-    //   let newDistance = props.distance / temp;
-    //   setCarDist(0.25 * newDistance);
-    //   setSuvDist(0.27 * newDistance);
-    //   setTruckDist(0.3 * newDistance);
-    // } else {
-    //   setCarDist(0.25 * props.distance);
-    //   setSuvDist(0.27 * props.distance);
-    //   setTruckDist(0.3 * props.distance);
-    // }
-  }
+  function calculateCarbonFootprint() {}
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
