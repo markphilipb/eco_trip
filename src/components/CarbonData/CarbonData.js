@@ -15,7 +15,6 @@ export default function CarbonData(props) {
   const [truckDist, setTruckDist] = useState(0);
   const [open, toggle] = useState(false);
 
-  function calculateCarbonFootprint() {}
   const sleep = (milliseconds) => {
     return new Promise((resolve) => setTimeout(resolve, milliseconds));
   };
