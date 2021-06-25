@@ -12,7 +12,7 @@ import Card from "react-bootstrap/Card";
 
 export default function SidePanel(props) {
   const [index, set] = useState(0);
-  const onClick = useCallback(() => set((state) => (state + 1) % 3), []);
+  const onClick = useCallback(() => set((state) => (state + 1) % 2), []);
   const transRef = useSpringRef();
   const transitions = useTransition(index, {
     ref: transRef,
@@ -26,7 +26,7 @@ export default function SidePanel(props) {
   ) => React.ReactElement)[] = [
     ({ style }) => (
       <animated.div style={{ ...style, background: "white" }}>
-        <RouteForm handleClick={props.handleClick} />
+        <RouteForm handleClick={props.handleClick} transitionFunc={onClick} />
       </animated.div>
     ),
     ({ style }) => (
@@ -53,7 +53,7 @@ export default function SidePanel(props) {
         style={containerStyle}
       >
         <Card.Body>
-          <div className={`flex fill`} onClick={onClick}>
+          <div className={`flex fill`}>
             {transitions((style, i) => {
               const Page = pages[i];
               return <Page style={style} />;
