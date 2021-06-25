@@ -54,7 +54,7 @@ export default function CarbonData(props) {
           </Col>
           <Col md="auto">
             <SpringMeter open={open} width={carDist} color="#32DF89" />
-            <div>Carbon emission is {0.25 * props.distance} grams</div>
+            {/* <div>Carbon emission is {0.25 * props.distance} grams</div> */}
           </Col>
           <div className="mt-2">
             Your trip costs ${((props.distance / 34761.81) * 3).toFixed(2)} USD
@@ -67,7 +67,7 @@ export default function CarbonData(props) {
           </Col>
           <Col md="auto">
             <SpringMeter open={open} width={suvDist} color="#32DF89" />
-            <div>Carbon emission is {0.27 * props.distance} grams</div>
+            {/* <div>Carbon emission is {0.27 * props.distance} grams</div> */}
           </Col>
           <div>
             Your trip costs ${((props.distance / 32186.9) * 3).toFixed(2)} USD
@@ -80,7 +80,7 @@ export default function CarbonData(props) {
           </Col>
           <Col md="auto">
             <SpringMeter open={open} width={truckDist} color="#32DF89" />
-            <div>Carbon emission is {0.3 * props.distance} grams</div>
+            {/* <div>Carbon emission is {0.3 * props.distance} grams</div> */}
           </Col>
           <div>
             Your trip costs ${((props.distance / 28968.2) * 3).toFixed(2)} USD
