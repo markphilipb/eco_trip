@@ -1,16 +1,44 @@
-import React, { useState } from "react";
-import { useSpring, a } from "@react-spring/web";
+import React, { useState, useCallback, CSSProperties, useEffect } from "react";
+import {
+  useTransition,
+  animated,
+  AnimatedProps,
+  useSpringRef,
+  useSpring,
+} from "@react-spring/web";
 import CarbonData from "../CarbonData/CarbonData";
 import RouteForm from "../RouteForm/RouteForm";
 import Card from "react-bootstrap/Card";
 
 export default function SidePanel(props) {
-  const [flipped, set] = useState(false);
-  const { transform, opacity } = useSpring({
-    opacity: flipped ? 1 : 0,
-    transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
-    config: { mass: 5, tension: 500, friction: 80 },
+  const [index, set] = useState(0);
+  const onClick = useCallback(() => set((state) => (state + 1) % 2), []);
+  const transRef = useSpringRef();
+  const transitions = useTransition(index, {
+    ref: transRef,
+    keys: null,
+    from: { opacity: 0, transform: "translate3d(100%,0,0)" },
+    enter: { opacity: 1, transform: "translate3d(0%,0,0)" },
+    leave: { opacity: 0, transform: "translate3d(-50%,0,0)" },
   });
+  const pages: ((
+    prps: AnimatedProps<{ style: CSSProperties }>
+  ) => React.ReactElement)[] = [
+    ({ style }) => (
+      <animated.div style={{ ...style, background: "white" }}>
+        <RouteForm handleClick={props.handleClick} transitionFunc={onClick} />
+      </animated.div>
+    ),
+    ({ style }) => (
+      <animated.div style={{ ...style, background: "white" }}>
+        <CarbonData distance={props.distance} />
+      </animated.div>
+    ),
+  ];
+
+  useEffect(() => {
+    transRef.start();
+  }, [index]);
 
   const containerStyle = {
     width: "600px",
@@ -25,22 +53,18 @@ export default function SidePanel(props) {
         style={containerStyle}
       >
         <Card.Body>
-          <a.div style={{ opacity: opacity.to((o) => 1 - o), transform }}>
-            <RouteForm
-              handleClick={props.handleClick}
-              showCarbon={() => set((state) => !state)}
-            />
-          </a.div>
+          <div className={`flex fill`}>
+            {transitions((style, i) => {
+              const Page = pages[i];
+              return <Page style={style} />;
+            })}
+          </div>
+          {/* <RouteForm
+            handleClick={props.handleClick}
+            // showCarbon={() => set((state) => !state)}
+          />
 
-          <a.div
-            style={{
-              opacity,
-              transform,
-              rotateX: "180deg",
-            }}
-          >
-            <CarbonData distance={props.distance} />
-          </a.div>
+          <CarbonData distance={props.distance} /> */}
         </Card.Body>
       </Card>
     </div>

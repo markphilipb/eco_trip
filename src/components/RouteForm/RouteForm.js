@@ -23,7 +23,8 @@ export default function RouteForm(props) {
 
   function handleSubmit(e) {
     props.handleClick(origin, destination);
-    props.showCarbon();
+    props.transitionFunc();
+    // props.showCarbon();
   }
 
   function onOriginInput(e) {
