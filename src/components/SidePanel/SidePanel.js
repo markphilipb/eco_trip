@@ -25,19 +25,21 @@ export default function SidePanel(props) {
     prps: AnimatedProps<{ style: CSSProperties }>
   ) => React.ReactElement)[] = [
     ({ style }) => (
-      <animated.div style={{ ...style, background: "lightpink" }}>
-        RouteForm handleClick={props.handleClick}
-        {/* // showCarbon={() => set((state) => !state)} */}
-        />
+      <animated.div style={{ ...style, background: "white" }}>
+        <RouteForm handleClick={props.handleClick} />
       </animated.div>
     ),
     ({ style }) => (
-      <animated.div style={{ ...style, background: "lightblue" }}>
-        {" "}
+      <animated.div style={{ ...style, background: "white" }}>
         <CarbonData distance={props.distance} />
       </animated.div>
     ),
   ];
+
+  useEffect(() => {
+    transRef.start();
+  }, [index]);
+
   const containerStyle = {
     width: "600px",
     height: "600px",
