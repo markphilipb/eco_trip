@@ -10,6 +10,9 @@ import CarbonData from "../CarbonData/CarbonData";
 import RouteForm from "../RouteForm/RouteForm";
 import Card from "react-bootstrap/Card";
 
+/**
+ * This component is the parent component of the {@link RouteForm} and {@link CarbonData} components.
+ */
 export default function SidePanel(props) {
   const [index, set] = useState(0);
   const onClick = useCallback(() => set((state) => (state + 1) % 2), []);
