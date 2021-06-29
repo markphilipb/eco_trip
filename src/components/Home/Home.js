@@ -45,7 +45,7 @@ class Home extends Component {
     var test = JSON.stringify(data);
     var parsed = JSON.parse(test);
     console.log("parsed", parsed.data);
-    console.log(parsed.data.routes[0].geometry.coordinates);
+    // console.log(parsed.data.routes[0].geometry.coordinates);
 
     this.setState({
       result: parsed.data,
