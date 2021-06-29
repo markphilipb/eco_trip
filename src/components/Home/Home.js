@@ -8,7 +8,9 @@ import Map from "../MapBoxComponent/MapBoxComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
-//FIXME: convert this component to a functional component
+/**
+ * FIXME: convert this component to a functional component
+ */
 class Home extends Component {
   constructor(props) {
     super(props);
