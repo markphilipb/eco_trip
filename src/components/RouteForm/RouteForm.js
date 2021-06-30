@@ -11,16 +11,6 @@ export default function RouteForm(props) {
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
 
-  //Mapbox autocomplete geocoder input field. Not using for now -MB
-  // componentDidMount() {
-  //   mapboxgl.accessToken =
-  //     "pk.eyJ1IjoibWFya2JhbGEiLCJhIjoiY2tucGVyeHNjMDFzMDJ3cnl2czQwaHBuOCJ9.bNY9rxYVfVIJM74SxBjb7Q";
-  //   var geocoder = new MapboxGeocoder({
-  //     accessToken: mapboxgl.accessToken,
-  //   });
-  //   // geocoder.addTo("#originField");
-  // }
-
   function handleSubmit(e) {
     props.handleClick(origin, destination);
     props.transitionFunc();
