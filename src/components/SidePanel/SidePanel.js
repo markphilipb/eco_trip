@@ -11,6 +11,8 @@ import RouteForm from "../RouteForm/RouteForm";
 import Card from "react-bootstrap/Card";
 
 /**
+ * FIXME: The transition component leaks outside of the card. Need to keep the transition
+ * inside the card.
  * This component is the parent component of the {@link RouteForm} and {@link CarbonData} components.
  */
 export default function SidePanel(props) {
