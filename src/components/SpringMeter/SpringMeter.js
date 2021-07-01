@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import useMeasure from "react-use-measure";
 import { useSpring, animated } from "@react-spring/web";
 import "./SpringMeter.css";
-
+/**
+ * FIXME: Remove number inside meter
+ * @param  {} props
+ */
 export default function SpringMeter(props) {
   const [open, toggle] = useState(false);
   const [ref, { width }] = useMeasure();
