@@ -6,6 +6,7 @@ import carIcon from "../../imgs/icons/car.png";
 import pickupIcon from "../../imgs/icons/pickuptruck.png";
 import suvIcon from "../../imgs/icons/suv.png";
 import SpringMeter from "../SpringMeter/SpringMeter";
+import "./CarbonData.css";
 
 export default function CarbonData(props) {
   const [origin, setOrigin] = useState("");
@@ -44,7 +45,7 @@ export default function CarbonData(props) {
   // 8887 grams of CO2 per 1 gallong
 
   return (
-    <div>
+    <div className="carbonData justify-content-center">
       <Container fluid>
         <div>Distance: {props.distance} meters</div>
 
