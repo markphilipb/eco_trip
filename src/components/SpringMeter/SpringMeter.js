@@ -23,9 +23,9 @@ export default function SpringMeter(props) {
         // onClick={() => toggle(!open)}
       >
         <animated.div className="fill" style={prp} />
-        <animated.div className="content">
+        {/* <animated.div className="content">
           {prp.width.to((x) => x.toFixed(0))}
-        </animated.div>
+        </animated.div> */}
       </div>
     </div>
   );
