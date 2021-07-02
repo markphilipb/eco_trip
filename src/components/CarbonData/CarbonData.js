@@ -49,7 +49,7 @@ export default function CarbonData(props) {
       <Container fluid>
         <div>Distance: {props.distance} meters</div>
 
-        <Row className="w-100 justify-content-left mt-2">
+        <Row className="w-150 justify-content-left mt-2">
           <Col md="auto">
             <img src={carIcon} height="50px" width="50px" alt="carIcon" />
           </Col>
@@ -67,7 +67,7 @@ export default function CarbonData(props) {
           </div>
         </Row>
 
-        <Row className="w-100 justify-content-left mt-2">
+        <Row className="w-150 justify-content-left mt-2">
           <Col md="auto">
             <img src={suvIcon} height="50px" width="50px" alt="suv" />
           </Col>
@@ -85,7 +85,7 @@ export default function CarbonData(props) {
           </div>
         </Row>
 
-        <Row className="w-100 justify-content-left mt-2">
+        <Row className="w-150 justify-content-left mt-2">
           <Col md="auto">
             <img src={pickupIcon} height="50px" width="50px" alt="pickupIcon" />
           </Col>
