@@ -1,6 +1,11 @@
 .carbonData {
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 1%;
+  padding-right: 3%;
   padding-top: 25%;
   padding-bottom: 25%;
+}
+
+.price {
+  padding-left: 1%;
+  padding-top: 5%;
 }
