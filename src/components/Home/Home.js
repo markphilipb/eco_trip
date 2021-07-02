@@ -8,6 +8,9 @@ import Map from "../MapBoxComponent/MapBoxComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 
+/**
+ * FIXME: convert this component to a functional component
+ */
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +45,6 @@ class Home extends Component {
     var test = JSON.stringify(data);
     var parsed = JSON.parse(test);
     console.log("parsed", parsed.data);
-    console.log(parsed.data.routes[0].geometry.coordinates);
 
     this.setState({
       result: parsed.data,
