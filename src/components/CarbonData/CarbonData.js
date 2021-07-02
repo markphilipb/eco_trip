@@ -47,8 +47,13 @@ export default function CarbonData(props) {
   return (
     <div className="carbonData justify-content-center">
       <Container fluid>
-        <div>Distance: {props.distance} meters</div>
-
+        <Row>
+          <Col>
+            <div className="distance">
+              {(props.distance / 1000).toFixed(2)} meters
+            </div>
+          </Col>
+        </Row>
         <Row className="w-150 justify-content-left mt-2">
           <Col md="auto">
             <img src={carIcon} height="50px" width="50px" alt="carIcon" />
@@ -66,7 +71,6 @@ export default function CarbonData(props) {
             ${((props.distance / 34761.81) * 3).toFixed(2)} USD
           </Col>
         </Row>
-
         <Row className="w-150 justify-content-left mt-2">
           <Col md="auto">
             <img src={suvIcon} height="50px" width="50px" alt="suv" />
@@ -84,7 +88,6 @@ export default function CarbonData(props) {
             ${((props.distance / 32186.9) * 3).toFixed(2)} USD
           </Col>
         </Row>
-
         <Row className="w-150 justify-content-left mt-2">
           <Col md="auto">
             <img src={pickupIcon} height="50px" width="50px" alt="pickupIcon" />
