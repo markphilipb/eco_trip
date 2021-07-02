@@ -62,9 +62,9 @@ export default function CarbonData(props) {
             />
             {/* <div>Carbon emission is {0.25 * props.distance} grams</div> */}
           </Col>
-          <div className="price">
+          <Col md="auto" className="price">
             ${((props.distance / 34761.81) * 3).toFixed(2)} USD
-          </div>
+          </Col>
         </Row>
 
         <Row className="w-150 justify-content-left mt-2">
@@ -80,9 +80,9 @@ export default function CarbonData(props) {
             />
             {/* <div>Carbon emission is {0.27 * props.distance} grams</div> */}
           </Col>
-          <div className="price">
+          <Col md="auto" className="price">
             ${((props.distance / 32186.9) * 3).toFixed(2)} USD
-          </div>
+          </Col>
         </Row>
 
         <Row className="w-150 justify-content-left mt-2">
@@ -98,9 +98,9 @@ export default function CarbonData(props) {
             />
             {/* <div>Carbon emission is {0.3 * props.distance} grams</div> */}
           </Col>
-          <div className="price">
+          <Col md="auto" className="price">
             ${((props.distance / 28968.2) * 3).toFixed(2)} USD
-          </div>
+          </Col>
         </Row>
       </Container>
     </div>
