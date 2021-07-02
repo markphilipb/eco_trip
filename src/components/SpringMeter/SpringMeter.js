@@ -10,7 +10,7 @@ export default function SpringMeter(props) {
   const [open, toggle] = useState(false);
   const [ref, { width }] = useMeasure();
   const prp = useSpring({
-    width: props.open ? width : 0,
+    width: props.open ? props.carbonEmit : 0,
     background: props.color,
   });
 
@@ -23,9 +23,9 @@ export default function SpringMeter(props) {
         // onClick={() => toggle(!open)}
       >
         <animated.div className="fill" style={prp} />
-        {/* <animated.div className="content">
-          {prp.width.to((x) => x.toFixed(0))}
-        </animated.div> */}
+        <animated.div className="content">
+          {prp.width.to((x) => x.toFixed(0).toString() + "g CO" + "2")}
+        </animated.div>
       </div>
     </div>
   );

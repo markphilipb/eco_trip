@@ -53,7 +53,7 @@ export default function SidePanel(props) {
   return (
     <div>
       <Card
-        className="shadow-lg p-3 mb-5 bg-white rounded"
+        className="shadow-lg p-3 bg-white rounded"
         border="light"
         style={containerStyle}
       >
