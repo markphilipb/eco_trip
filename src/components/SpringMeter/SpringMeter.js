@@ -24,7 +24,7 @@ export default function SpringMeter(props) {
       >
         <animated.div className="fill" style={prp} />
         <animated.div className="content">
-          {prp.width.to((x) => x.toFixed(0))}
+          {prp.width.to((x) => x.toFixed(0).toString() + "g CO" + "2")}
         </animated.div>
       </div>
     </div>
