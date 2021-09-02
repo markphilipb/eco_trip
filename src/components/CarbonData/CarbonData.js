@@ -50,7 +50,7 @@ export default function CarbonData(props) {
         <Row>
           <Col>
             <div className="distance">
-              {(props.distance / 1000).toFixed(2)} meters
+              {(props.distance * 0.0006).toFixed(2)} miles
             </div>
           </Col>
         </Row>
